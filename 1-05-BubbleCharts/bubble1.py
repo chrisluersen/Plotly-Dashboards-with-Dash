@@ -14,7 +14,7 @@ data = [go.Scatter(          # start with a normal scatter plot
     y=df['mpg'],
     text=df['name'],
     mode='markers',
-    marker=dict(size=1.5*df['cylinders']) # set the marker size
+    marker=dict(size=1.5*df['cylinders']) # set the marker size by size of car cynlinders, needs to be dict
 )]
 
 layout = go.Layout(

@@ -13,12 +13,12 @@ import pandas as pd
 df = pd.read_csv('../data/mpg.csv')
 
 # create data by choosing fields for x, y and marker size attributes
-data = [go.Scatter(
+data = [go.Scatter( # make a scatter plot
     x=df['displacement'],
     y=df['acceleration'],
-    text=df['name'],
-    mode='markers',
-    marker=dict(size=df['weight']/500)
+    text=df['name'], # set x and y
+    mode='markers', # first set mode to markers
+    marker=dict(size=df['weight']/500) # change marker size
 )]
 
 # create a layout with a title and axis labels

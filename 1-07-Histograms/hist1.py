@@ -7,8 +7,10 @@ import pandas as pd
 
 df = pd.read_csv('../data/mpg.csv')
 
+# categorical feature = bar chart
+# continous feature = historam
 data = [go.Histogram(
-    x=df['mpg']
+    x=df['mpg'] # only need one continous feature
 )]
 
 layout = go.Layout(
