@@ -7,6 +7,4 @@ Enroll in our course! Use the link below to get a 30-day trial at 95% off!
 https://www.udemy.com/draft/1575562/?couponCode=GITHUB_DASHBOARDS
 
 ## Getting Started
-conda create --name mydashenv
-conda checkout mydashenv
-conda install requirements.txt
+conda create --name mydashenv requirements.txt
