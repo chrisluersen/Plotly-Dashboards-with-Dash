@@ -25,8 +25,8 @@ app.layout = html.Div([
 
 @app.callback(
     Output('number-out', 'children'),
-    [Input('submit-button', 'n_clicks')],
-    [State('number-in', 'value')])
+    [Input('submit-button', 'n_clicks')], # add button as input # input is action of clicking button
+    [State('number-in', 'value')]) # add state value # input value is stored in state
 def output(n_clicks, number):
     return number
 
