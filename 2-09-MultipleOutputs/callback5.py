@@ -13,7 +13,8 @@ app = dash.Dash()
 
 df = pd.read_csv('../data/wheels.csv')
 
-def encode_image(image_file):
+def encode_image(image_file): # read in image_file using open(image_file, 'rb').read() 
+    # rb= read binary, then encordes it with b64encode
     encoded = base64.b64encode(open(image_file, 'rb').read())
     return 'data:image/png;base64,{}'.format(encoded.decode())
 
@@ -53,8 +54,8 @@ def callback_b(colors_value):
      Input('colors', 'value')])
 def callback_image(wheel, color):
     path = '../data/images/'
-    return encode_image(path+df[(df['wheels']==wheel) & \
-    (df['color']==color)]['image'].values[0])
+    return encode_image(path+df[(df['wheels']==wheel) & (df['color']==color)]['image'].values[0]) # grab image string if it matches
+# 'wheels' input equal to wheel column and same with color
 
 if __name__ == '__main__':
     app.run_server()

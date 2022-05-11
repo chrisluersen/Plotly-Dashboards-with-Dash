@@ -13,20 +13,21 @@ app = dash.Dash()
 
 df = pd.read_csv('../data/mpg.csv')
 
-features = df.columns
+# ['mpg','hp','displace']
+features = df.columns # just a list of the actual columns
 
-app.layout = html.Div([
+app.layout = html.Div([ # as always set up div
 
-        html.Div([
+        html.Div([ # first drop down
             dcc.Dropdown(
                 id='xaxis',
-                options=[{'label': i.title(), 'value': i} for i in features],
+                options=[{'label': i.title(), 'value': i} for i in features], # i is column name
                 value='displacement'
             )
         ],
-        style={'width': '48%', 'display': 'inline-block'}),
+        style={'width': '48%', 'display': 'inline-block'}), # style dict so dropdowns dont overlap 48% give 4% space between two #inline-block makes them appear next to eachother
 
-        html.Div([
+        html.Div([ # second drop down
             dcc.Dropdown(
                 id='yaxis',
                 options=[{'label': i.title(), 'value': i} for i in features],
@@ -34,20 +35,20 @@ app.layout = html.Div([
             )
         ],style={'width': '48%', 'float': 'right', 'display': 'inline-block'}),
 
-    dcc.Graph(id='feature-graphic')
-], style={'padding':10})
+    dcc.Graph(id='feature-graphic') # graph
+], style={'padding':10}) # put some space between each component
 
 @app.callback(
-    Output('feature-graphic', 'figure'),
-    [Input('xaxis', 'value'),
-     Input('yaxis', 'value')])
+    Output('feature-graphic', 'figure'), # id is called feature-graph, value we're messing with is the figure
+    [Input('xaxis', 'value'), # id of first dropdown
+     Input('yaxis', 'value')]) # id of second dropdown
 def update_graph(xaxis_name, yaxis_name):
     return {
         'data': [go.Scatter(
             x=df[xaxis_name],
             y=df[yaxis_name],
-            text=df['name'],
-            mode='markers',
+            text=df['name'], # name of car itself on hover
+            mode='markers', # make scatter plot and not line plot
             marker={
                 'size': 15,
                 'opacity': 0.5,
