@@ -14,4 +14,3 @@ conda create --name mydashenv requirements.txt
 2. app = dash.Dash()
 3. app.layout = html.Div([])
    - then insert all the dcc and html items
-4. 
