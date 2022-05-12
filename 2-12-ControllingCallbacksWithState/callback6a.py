@@ -12,23 +12,25 @@ app.layout = html.Div([
     dcc.Input(
         id='number-in',
         value=1,
-        style={'fontSize':28}
+        style={'fontSize': 28}
     ),
-    html.Button(
+    html.Button( # add button for controlling callback with state
         id='submit-button',
-        n_clicks=0,
-        children='Submit',
-        style={'fontSize':28}
+        n_clicks=0, # don't need to count number of clicks
+        children='Submit', # text displayed in button
+        style={'fontSize': 28}
     ),
     html.H1(id='number-out')
 ])
 
 @app.callback(
     Output('number-out', 'children'),
-    [Input('submit-button', 'n_clicks')], # add button as input # input is action of clicking button
-    [State('number-in', 'value')]) # add state value # input value is stored in state
+    # add button as input # input is action of clicking button
+    [Input('submit-button', 'n_clicks')],
+    [State('number-in', 'value')])  # add state value # input value is stored in state
 def output(n_clicks, number):
     return number
+
 
 if __name__ == '__main__':
     app.run_server()

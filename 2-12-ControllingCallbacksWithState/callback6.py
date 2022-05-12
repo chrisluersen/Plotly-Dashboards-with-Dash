@@ -14,11 +14,11 @@ app.layout = html.Div([
         value=1,
         style={'fontSize':28}
     ),
-    html.H1(id='number-out')
+    html.H1(id='number-out') # h1 tag assigned to number-out id
 ])
 
 @app.callback(
-    Output('number-out', 'children'),
+    Output('number-out', 'children'), # output with number-out id
     [Input('number-in', 'value')])
 def output(number):
     return number

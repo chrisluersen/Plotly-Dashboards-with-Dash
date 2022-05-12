@@ -36,19 +36,19 @@ app.layout = html.Div([
                 title = 'Wheels & Colors Scatterplot',
                 xaxis = {'title': 'Color'},
                 yaxis = {'title': '# of Wheels','nticks':3},
-                hovermode='closest'
+                hovermode='closest' # when cursor is closest to scatterpoint that's the info were's
             )
         }
     )], style={'width':'30%', 'float':'left'}),
 
     html.Div([
-    html.Pre(id='hover-data', style={'paddingTop':35})
+    html.Pre(id='hover-data', style={'paddingTop':35}) # where to put the hover data
     ], style={'width':'30%'})
 ])
 
 @app.callback(
-    Output('hover-data', 'children'),
-    [Input('wheels-plot', 'hoverData')])
+    Output('hover-data', 'children'), # set hover-data to op
+    [Input('wheels-plot', 'hoverData')]) # hoverData is from documentation hoverData is a string you can't change for plotly to recoginize it
 def callback_image(hoverData):
     return json.dumps(hoverData, indent=2)
 
