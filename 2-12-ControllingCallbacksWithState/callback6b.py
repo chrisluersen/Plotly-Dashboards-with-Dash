@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output, State
 app = dash.Dash()
 
 app.layout = html.Div([
-    dcc.Input(
+    dcc.Input( # action of clicking html button element
         id='number-in',
         value=1,
         style={'fontSize':28}

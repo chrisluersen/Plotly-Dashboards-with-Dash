@@ -10,11 +10,11 @@ app = dash.Dash()
 
 app.layout = html.Div([
     dcc.Input(
-        id='number-in',
+        id='number-in', # choose a number in the input
         value=1,
         style={'fontSize':28}
     ),
-    html.H1(id='number-out') # h1 tag assigned to number-out id
+    html.H1(id='number-out') # h1 tag assigned to number-out id # select it
 ])
 
 @app.callback(

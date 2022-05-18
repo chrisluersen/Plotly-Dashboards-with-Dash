@@ -19,3 +19,9 @@ pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-hos
 2. app = dash.Dash()
 3. app.layout = html.Div([])
    - then insert all the dcc and html items
+
+# GIT
+git checkout chris_plotting
+git add *
+git commit -m "feat: added stuff"
+git push
